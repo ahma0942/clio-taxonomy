@@ -14,7 +14,7 @@ class EmployeesForeignKeyEmployeesData extends Migration
     public function up()
     {
         Schema::table('employees', function(Blueprint $table) {
-            $table->unsignedBigInteger('employees_data_id')->after("superior_id");
+            $table->unsignedBigInteger('employees_data_id')->after("superior_id")->nullable();
             $table->foreign('employees_data_id')->references('id')->on('employees_data')->cascadeOnUpdate()->restrictOnDelete();
         });
     }

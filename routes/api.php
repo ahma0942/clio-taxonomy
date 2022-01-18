@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/employees/{employee_id}/staff', 'EmployeesController@get_children');
+Route::post('/employees', 'EmployeesController@add_employee');
+Route::put('/employees/{employee_id}', 'EmployeesController@update_parent');

@@ -17,7 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('name');
             $table->set('role', ['manager', 'developer', 'misc']);
-            $table->unsignedBigInteger('superior_id');
+            $table->unsignedBigInteger('superior_id')->nullable();
             $table->foreign('superior_id')->references('id')->on('employees')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
         });
